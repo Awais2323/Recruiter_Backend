@@ -87,73 +87,73 @@ db.candidateProfile.belongsTo(db.user, {
   foreignKey : 'userId'
 });
 
-// // education foreign key with profile table
-// db.candidateProfile.hasMany(db.candidateEducation,{
-//   foreignKey: "userId"
-// });
-// db.candidateEducation.belongsTo(db.candidateProfile, {
-//   foreignKey : 'userId'
-// });
-
-// user foreign key with education table
-db.user.hasMany(db.candidateEducation,{
+// education foreign key with profile table
+db.candidateProfile.hasMany(db.candidateEducation,{
   foreignKey: "userId"
 });
 db.candidateEducation.belongsTo(db.candidateProfile, {
   foreignKey : 'userId'
 });
 
+// user foreign key with education table
+// db.user.hasMany(db.candidateEducation,{
+//   foreignKey: "userId"
+// });
+// db.candidateEducation.belongsTo(db.candidateProfile, {
+//   foreignKey : 'userId'
+// });
+
 // projects
-db.user.hasMany(db.candidateProjects,{
-  foreignKey: "userId"
-});
-db.candidateProjects.belongsTo(db.candidateProfile, {
-  foreignKey : 'userId'
-});
-// db.candidateProfile.hasMany(db.candidateProjects,{
+// db.user.hasMany(db.candidateProjects,{
 //   foreignKey: "userId"
 // });
 // db.candidateProjects.belongsTo(db.candidateProfile, {
 //   foreignKey : 'userId'
 // });
-
-// skills
-db.user.hasMany(db.candidateSkills,{
+db.candidateProfile.hasMany(db.candidateProjects,{
   foreignKey: "userId"
 });
-db.candidateSkills.belongsTo(db.candidateProfile, {
+db.candidateProjects.belongsTo(db.candidateProfile, {
   foreignKey : 'userId'
 });
-// db.candidateProfile.hasMany(db.candidateSkills,{
+
+// skills
+// db.user.hasMany(db.candidateSkills,{
 //   foreignKey: "userId"
 // });
 // db.candidateSkills.belongsTo(db.candidateProfile, {
 //   foreignKey : 'userId'
 // });
-
-// languages
-db.user.hasMany(db.candidateLanguages,{
+db.candidateProfile.hasMany(db.candidateSkills,{
   foreignKey: "userId"
 });
-db.candidateLanguages.belongsTo(db.candidateProfile, {
+db.candidateSkills.belongsTo(db.candidateProfile, {
   foreignKey : 'userId'
 });
 
-// db.candidateProfile.hasMany(db.candidateLanguages,{
+// languages
+// db.user.hasMany(db.candidateLanguages,{
 //   foreignKey: "userId"
 // });
 // db.candidateLanguages.belongsTo(db.candidateProfile, {
 //   foreignKey : 'userId'
 // });
-//Experience
-db.user.hasMany(db.candidateExperience, {foreignKey: "userId"});
-db.candidateExperience.belongsTo(db.candidateProfile,{
-  foreignKey :'userId'
+
+db.candidateProfile.hasMany(db.candidateLanguages,{
+  foreignKey: "userId"
 });
-// db.candidateProfile.hasMany(db.candidateExperience, {foreignKey: "userId"});
+db.candidateLanguages.belongsTo(db.candidateProfile, {
+  foreignKey : 'userId'
+});
+//Experience
+// db.user.hasMany(db.candidateExperience, {foreignKey: "userId"});
 // db.candidateExperience.belongsTo(db.candidateProfile,{
 //   foreignKey :'userId'
 // });
+db.candidateProfile.hasMany(db.candidateExperience, {foreignKey: "userId"});
+db.candidateExperience.belongsTo(db.candidateProfile,{
+  foreignKey :'userId'
+});
 
 // EMPLOYERS
 
