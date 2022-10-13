@@ -20,7 +20,7 @@ exports.saveEducation = async (req, res) => {
 };
 
 exports.showAllEducations = async (req, res) => {
-    const userId = req.userId;
+    const userId = req.query.userId;
 
     if (!userId) {
         res.status(403).json({
