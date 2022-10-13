@@ -52,7 +52,7 @@ exports.showAllEducations = async (req, res) => {
 
 exports.showEducationById = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.req.userId;
 
     if (!userId) {
         res.status(403).json({
