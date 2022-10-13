@@ -2,7 +2,6 @@ const db = require("../models");
 const userEducation = db.candidateEducation;
 
 exports.saveEducation = async (req, res) => {
-    console.log(req.body)
     await userEducation.create(req.body).then(data => {
         res.status(200).json({
             status: 200,
@@ -85,7 +84,7 @@ exports.showEducationById = async (req, res) => {
 
 exports.deleteEducation = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     try {
         const education = await userEducation.findOne({
             where: { id, userId }
@@ -115,7 +114,7 @@ exports.deleteEducation = async (req, res) => {
 
 exports.updateEducation = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     const {
         degree_title,
         field_of_study,
