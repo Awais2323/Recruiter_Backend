@@ -21,7 +21,7 @@ exports.saveLanguages = async (req, res) => {
 };
 
 exports.showAllLanguages = async (req, res) => {
-    const userId = req.userId;
+    const userId = req.query.userId;
 
     if (!userId) {
         res.status(403).json({

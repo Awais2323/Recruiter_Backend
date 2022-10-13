@@ -22,7 +22,7 @@ exports.saveProjects = async (req, res) => {
 
 
 exports.showAllProjects = async (req, res) => {
-    const userId = req.userId;
+    const userId = req.query.userId;
 
     if (!userId) {
         res.status(403).json({

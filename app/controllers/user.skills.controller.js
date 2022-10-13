@@ -21,7 +21,7 @@ exports.saveSkills = async (req, res) => {
 };
 
 exports.showAllSkills = async (req, res) => {
-    const userId = req.userId;
+    const userId = req.query.userId;
 
     console.log(userId);
 
