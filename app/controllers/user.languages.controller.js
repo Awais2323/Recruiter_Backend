@@ -52,7 +52,7 @@ exports.showAllLanguages = async (req, res) => {
 
 exports.showLanguageById = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
 
     if (!userId) {
         res.status(403).json({
@@ -83,7 +83,7 @@ exports.showLanguageById = async (req, res) => {
 
 exports.deleteLanguages = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     try {
         const language = await userLanguages.findOne({
             where: { id, userId }
@@ -113,7 +113,7 @@ exports.deleteLanguages = async (req, res) => {
 
 exports.updateLanguages = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     const {
         language_title,
         language_proficiency

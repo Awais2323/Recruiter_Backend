@@ -53,7 +53,7 @@ exports.showAllProjects = async (req, res) => {
 
 exports.showProjectById = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
 
     if (!userId) {
         res.status(403).json({
@@ -84,7 +84,7 @@ exports.showProjectById = async (req, res) => {
 
 exports.deleteProjects = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     
     try {
         const project = await userProjects.findOne({
@@ -115,7 +115,7 @@ exports.deleteProjects = async (req, res) => {
 
 exports.updateProjects = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     console.log(userId);
     const {
         project_name,

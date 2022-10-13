@@ -54,7 +54,7 @@ exports.showAllSkills = async (req, res) => {
 
 exports.showSkillById = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
 
     if (!userId) {
         res.status(403).json({
@@ -86,7 +86,7 @@ exports.showSkillById = async (req, res) => {
 
 exports.deleteSkills = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     try {
         const skill = await userSkills.findOne({
             where: { id, userId }
@@ -116,7 +116,7 @@ exports.deleteSkills = async (req, res) => {
 
 exports.updateSkills = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     const {
         skill_title,
         skill_proficiency
