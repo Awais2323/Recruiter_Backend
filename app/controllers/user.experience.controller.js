@@ -30,6 +30,7 @@ exports.showAllExperiences = async (req, res) => {
             message: "Unauthorize"
         });
     } else {
+        console.log("Exppp",userId)
         await userExperience.findAll({
             where: { userId }
         })
