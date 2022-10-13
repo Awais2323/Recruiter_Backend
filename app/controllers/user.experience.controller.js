@@ -83,6 +83,7 @@ exports.showExperienceById = async (req, res) => {
 };
 
 exports.deleteExperience = async (req, res) => {
+
     const id = req.query.id;
     const userId = req.query.userId;
     try {
@@ -90,6 +91,7 @@ exports.deleteExperience = async (req, res) => {
             where: { id, userId }
         });
         await experience.destroy().then(data => {
+            console.log("data")
             res.status(200).json({
                 status: 200,
                 success: true,
