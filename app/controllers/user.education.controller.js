@@ -29,7 +29,9 @@ exports.showAllEducations = async (req, res) => {
             message: "Unauthorize"
         });
     } else {
+        console.log("this is the id",userId)
         await userEducation.findAll({
+            
             where: { userId }
         })
         .then(data => {
