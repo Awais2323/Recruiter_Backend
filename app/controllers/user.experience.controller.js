@@ -53,7 +53,7 @@ exports.showAllExperiences = async (req, res) => {
 
 exports.showExperienceById = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
 
     if (!userId) {
         res.status(403).json({
@@ -84,7 +84,7 @@ exports.showExperienceById = async (req, res) => {
 
 exports.deleteExperience = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     try {
         const experience = await userExperience.findOne({
             where: { id, userId }
@@ -114,7 +114,7 @@ exports.deleteExperience = async (req, res) => {
 
 exports.updateExperience = async (req, res) => {
     const id = req.query.id;
-    const userId = req.userId;
+    const userId = req.query.userId;
     const {
         jobTitle,
         company,
