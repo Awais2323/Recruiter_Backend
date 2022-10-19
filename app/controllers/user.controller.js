@@ -184,6 +184,35 @@ exports.getAllUsers = async (req, res) => {
   }
   
 }
+exports.deleteUserProfile = async (req, res) => {
+    const id = req.query.id;
+    try {
+        const candidate = await CandidateProfile.findOne({
+            where: { id }
+        });
+        await candidate.destroy().then(data => {
+            res.status(200).json({
+                status: 200,
+                success: true,
+                message: "Deleted Successfully",
+                data: data
+            });
+        }).catch(err => {
+            res.status(500).json({
+                status: 500,
+                success: false,
+                message: err.message || "Something Went wrong while requesting!"
+            });
+        });
+    } catch (err) {
+        res.status(500).json({
+            status: 500,
+            success: false,
+            message: err.message || "Something Went wrong while requesting!"
+        });
+    }
+};
+
 exports.imageUpload = async (req, res) => {
   const payload = req.body
   // console.log("payload",req.body)
