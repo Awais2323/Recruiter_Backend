@@ -188,10 +188,10 @@ exports.deleteUserProfile = async (req, res) => {
       where: { id, userId },
     });
     education.destroy();
-    const employer = await employerProfile.findOne({
-      where: { id },
-    });
-    employer.destroy();
+    const experience = await userExperience.findOne({
+      where: { id, userId }
+  });
+  experience.destroy()
     const language = await userLanguages.findOne({
       where: { id, userId },
     });
