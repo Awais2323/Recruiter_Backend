@@ -184,28 +184,31 @@ exports.deleteUserProfile = async (req, res) => {
   const id = req.query.id;
   const userId = req.query.userId;
   try {
-    // const education = await candidateEducation.findAll({
-    //   where: { userId },
-    // });
-    // console.log(education,"Dataof the education")
-    // await education.destroy();
+    const education = await candidateEducation.findAll({
+      where: { userId },
+    });
+    console.log(education,"educationofcandidate")
+    await education.map((edu) => edu.destroy());
+
     const experience = await candidateExperience.findAll({
-      where: {  userId },
+      where: { userId },
     });
-    await experience.destroy();
+    await experience.map((exp) => exp.destroy());
     const language = await candidateLanguages.findAll({
-      where: {  userId },
+      where: { userId },
     });
-    await language.destroy();
+    await language.map((language) => language.destroy());
+
     const project = await candidateProjects.findAll({
-      where: {  userId },
+      where: { userId },
     });
-    await project.destroy();
+    await project.map((project) => project.destroy());
+
     const skill = await candidateSkills.findAll({
-      where: {  userId },
+      where: { userId },
     });
-    
-    await skill.destroy();
+
+    await skill.map((skill) => skill.destroy());
 
     const candidate = await CandidateProfile.findOne({
       where: { id },
