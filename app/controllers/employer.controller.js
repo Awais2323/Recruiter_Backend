@@ -122,7 +122,7 @@ exports.deleteEmployerProfile = async (req, res) => {
     const employerId = req.userId;
     try {
         const employer = await employerProfile.findOne({
-            where: { id, employerId }
+            where: { id }
         });
         await employer.destroy().then(data => {
             res.status(200).json({
