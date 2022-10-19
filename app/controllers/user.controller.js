@@ -225,7 +225,7 @@ if(skill.length>0){
 }
 
     const candidate = await CandidateProfile.findOne({
-      where: { id,userId },
+      where: { id:userId,userId:id },
     });
     await candidate
       .destroy()
