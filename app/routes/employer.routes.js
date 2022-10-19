@@ -19,7 +19,7 @@ module.exports = function (app) {
     app.post("/api/employer/profile/create", [authJwt.verifyToken,authJwt.isEmployer], employerProfileController.saveEmployerProfile);
     app.get("/api/employer/profile/getOne", [authJwt.verifyToken,authJwt.isEmployer], employerProfileController.showEmployerProfileById);
     app.get("/api/employer/profile/getAll", [authJwt.verifyToken,authJwt.isEmployer], employerProfileController.showAllEmployerProfiles);
-    app.delete("/api/employer/profile/delete", [authJwt.verifyToken,authJwt.isEmployer], employerProfileController.deleteEmployerProfile);
+    app.delete("/api/employer/profile/delete", [authJwt.verifyToken,authJwt.isEmployerOrAdmin], employerProfileController.deleteEmployerProfile);
     app.put("/api/employer/profile/update", [authJwt.verifyToken,authJwt.isEmployer], employerProfileController.updateEmployerProfile);
 
     //company
