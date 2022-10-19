@@ -187,23 +187,23 @@ exports.deleteUserProfile = async (req, res) => {
     const education = await candidateEducation.findOne({
       where: { id, userId },
     });
-    education.destroy();
+    await education.destroy();
     const experience = await userExperience.findOne({
-      where: { id, userId }
-  });
-  experience.destroy()
+      where: { id, userId },
+    });
+    await experience.destroy();
     const language = await userLanguages.findOne({
       where: { id, userId },
     });
-    language.destroy();
+    await language.destroy();
     const project = await userProjects.findOne({
       where: { id, userId },
     });
-    project.destroy();
+    await project.destroy();
     const skill = await userSkills.findOne({
       where: { id, userId },
     });
-    skill.destroy();
+    await skill.destroy();
 
     const candidate = await CandidateProfile.findOne({
       where: { id },
