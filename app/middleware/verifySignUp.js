@@ -13,7 +13,7 @@ checkDuplicateUsernameOrEmail = async (req, res, next) => {
 
     if (user) {
 
-      res.status(400).json({
+  return    res.status(400).json({
         status: 400,
         success: false,
         message: "Failed! Username is already in use!"
@@ -28,7 +28,7 @@ checkDuplicateUsernameOrEmail = async (req, res, next) => {
     });
 
     if (user) {
-      res.status(400).json({
+     return res.status(400).json({
         status: 400,
         success: false,
         message: "Failed! Email is already in use!"
