@@ -19,7 +19,7 @@ module.exports = function (app) {
   app.post("/api/user/profile/create", [authJwt.verifyToken], controller.createUpdate);
   app.get("/api/user/profile/getOne", [authJwt.verifyToken], controller.getUserById);
   app.get("/api/user/profile/getAll", [authJwt.verifyToken], controller.getAllUsers);
-  app.get("/api/user/profile/delete", [authJwt.verifyToken], controller.deleteUserProfile);
+  app.delete("/api/user/profile/delete", [authJwt.verifyToken,authJwt.isEmployerOrAdmin], controller.deleteUserProfile);
   
 
   //Education
