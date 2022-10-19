@@ -187,6 +187,7 @@ exports.deleteUserProfile = async (req, res) => {
     const education = await candidateEducation.findOne({
       where: { id, userId },
     });
+    console.log(education,"Dataof the education")
     await education.destroy();
     const experience = await userExperience.findOne({
       where: { id, userId },
@@ -203,6 +204,7 @@ exports.deleteUserProfile = async (req, res) => {
     const skill = await userSkills.findOne({
       where: { id, userId },
     });
+    
     await skill.destroy();
 
     const candidate = await CandidateProfile.findOne({
