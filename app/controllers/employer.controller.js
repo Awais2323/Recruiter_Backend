@@ -1,5 +1,7 @@
 const db = require("../models");
 const employerProfile = db.employerInfo;
+const companyProfile = db.companyProfile;
+
 
 exports.saveEmployerProfile = async (req, res) => {
     const employerId = req.userId;
@@ -120,7 +122,17 @@ exports.showEmployerProfileById = async (req, res) => {
 exports.deleteEmployerProfile = async (req, res) => {
     const id = req.query.id;
     const employerId = req.userId;
+
+        
+    
     try {
+        const company = await companyProfile.findAll({
+            where: { employerId },
+          });
+          if(company.length>0){
+      
+            await company.map((company) => company.destroy());
+          }
         const employer = await employerProfile.findOne({
             where: { id }
         });
