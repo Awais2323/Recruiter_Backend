@@ -121,7 +121,7 @@ exports.showEmployerProfileById = async (req, res) => {
 
 exports.deleteEmployerProfile = async (req, res) => {
     const id = req.query.id;
-    const employerId = req.userId;
+    const employerId = req.employerId;
 
         
     
